@@ -83,13 +83,18 @@ const calculate_sphere = () => {
   let volume = document.getElementById('volume');
   let area = document.getElementById('area');
   // get input of radius
-  let input = radius.value;
-  // create and perform math and insert answer as textContent
-  volume.textContent = ((4/3) * Math.PI * Math.pow(radius, 3));
+  let radiusInput = Number.parseInt(radius.value);
+  let submit = document.getElementById('submit');
   
+  // create and perform math and insert answer as value
+  let areaFormula = 4 * Math.PI * Math.pow(radiusInput, 2);
+  let volumeFormula = ((4/3) * Math.PI * (Math.pow(radiusInput, 3)))
+  volume.value = volumeFormula;
+  area.value = areaFormula;
   
-  
-}
+  // return false to prevent form default clearing behavior
+  return false;
+};
 
 window.onload = document.getElementById('MyForm').onsubmit = calculate_sphere; // this executes the volume_sphere function each time the calculate (submit) button is clicked
 
